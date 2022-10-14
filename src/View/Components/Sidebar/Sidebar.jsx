@@ -3,7 +3,22 @@ import './Sidebar.css';
 import dumbProfil from '../../../Assets/img/dumb-profil.jpg';
 import { useState } from 'react';
 
+
+
+
+let textColor = 'var(--grayText)';
+
 const Sidebar = () => {
+    let [isClicked, setClicked] = useState(0);
+    let Menu = [
+        { iconName: 'home-alt-2', name: "Home", route: './' },
+        { iconName: 'book-heart', name: 'Favorites', route: './Favorites-books' },
+        { iconName: 'history', name: 'History', route: './History' },
+        { iconName: 'cog', name: "Settings", route: './Settings' },
+        { iconName: 'help-circle', name: 'Support', route: 'https://hello.com' },
+        { iconName: 'log-out', name: 'Log out', route: '' }
+    ]
+
     return (
         <div className="sidebar">
             <div className="head">
@@ -22,45 +37,51 @@ const Sidebar = () => {
                 </div>
             </div>
 
-            <MenuSidebar />
+            <ul className='List_container asLine'>
+                {Menu.map((el, i) => {
+                    return <div key={i}>
+                        {i < 3 && <SingleList
+
+                            IconName={el.iconName}
+                            Name={el.name}
+                            isClicked={isClicked === i}
+                            onPressed={() => {
+                                setClicked(i)
+                            }}
+                        />
+                        }
+                    </div>
+
+                })}
+            </ul>
+
+            <ul className='List_container'>
+                {Menu.map((el, i) => {
+                    return <div key={i}>
+                        {i >= 3 && <SingleList
+                            IconName={el.iconName}
+                            Name={el.name}
+                            isClicked={isClicked === i}
+                            onPressed={() => {
+                                setClicked(i)
+                            }}
+                        />}
+                    </div>
+                })}
+            </ul>
         </div>
     )
 }
 
-let textColor = 'var(--grayText)'
 
-function MenuSidebar() {
-    let [active, setActive] = useState(false)
-    const SidebarMenu = {
-        UperMenu: [
-            { iconName: 'home-alt-2', name: "Home", route: './'},
-            { iconName: 'book-heart', name: 'Favorites', route: './Favorites-books' },
-            { iconName: 'history', name: 'History', route: './History' }
-        ],
-        BottomMenu: [
-            { iconName: 'cog', name: "Settings", route: './Settings' },
-            { iconName: 'help-circle', name: 'Support', route: 'https://hello.com' },
-            { iconName: 'log-out', name: 'Log out', route: '' }
-        ]
-    }
+
+function SingleList({ IconName, Name, isClicked, onPressed }) {
     return (
-        <>
-            {Object.values(SidebarMenu).map((_, i) => {
-                return <ul className={`List_container ${i === 0 && 'asLine'}`} key={i}>
-                    {_.map((el, i) => {
-                        return <li key={i} onClick={(event)=>{
-                            event.stopPropagation();
-                            event.preventDefault();
-                            setActive(true)
-                        }} className={active ? 'active_list' : ''}>
-                            <box-icon name={el.iconName} color={textColor} ></box-icon>
-                            <p>{el.name}</p>
-                        </li>
-                    })}
-                </ul>
-            })}
+        <li onClick={onPressed} className={isClicked ? 'active_list' : ''}>
+            <box-icon name={IconName} type={isClicked ? 'solid' : 'regular'} color={textColor} ></box-icon>
+            <p>{Name}</p>
+        </li>
 
-        </>
     )
 
 }
