@@ -1,0 +1,72 @@
+.sidebar {
+  height: 100vh;
+  width: 18rem;
+  min-width: 18rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--secondaryColor);
+  color: var(--cardColor);
+}
+
+.head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.head > h1 {
+  /* color: var(--cardColor); */
+  font-size: 1.5rem;
+}
+
+.notificatiion_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.5rem;
+  background-color: var(--secondaryColorVariant);
+  border-radius: 50%;
+}
+.profil_container {
+  width: 100%;
+  height: auto;
+  padding: 2.5rem 0rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-bottom: solid 2px var(--secondaryColorVariant);
+}
+.profil_img {
+  width: 5rem;
+  height: 5rem;
+}
+.profil_img > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}.initials_container > p{
+    color: var(--grayText);
+}
+
+.List_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 0rem;
+}
+.List_container li{
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: .5rem;
+    gap: .5rem;
+}.List_container li > p{
+    color: var(--grayText);
+}.List_container .active_list{
+    background-color: var(--primaryColor);
+    border-radius: .5rem;
+}
+.asLine{
+    border-bottom: solid 2px var(--secondaryColorVariant);
+}
+
