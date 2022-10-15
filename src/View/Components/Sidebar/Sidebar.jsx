@@ -1,4 +1,4 @@
-import { AppName } from '../../../Config/Config';
+import { AppName, textColor } from '../../../Config/Config';
 import './Sidebar.css';
 import dumbProfil from '../../../Assets/img/dumb-profil.jpg';
 import { useState } from 'react';
@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 
 
-let textColor = 'var(--grayText)';
+
 
 const Sidebar = () => {
     let [isClicked, setClicked] = useState(0);
@@ -29,7 +29,7 @@ const Sidebar = () => {
             </div>
             <div className="profil_container">
                 <div className="profil_img">
-                    <img src={dumbProfil} alt="Profil Image" width={200} height={200} />
+                    <img src={dumbProfil} alt="Profil" width={200} height={200} />
                 </div>
                 <div className="initials_container">
                     <h3>Michael Jordans</h3>
@@ -48,6 +48,7 @@ const Sidebar = () => {
                             onPressed={() => {
                                 setClicked(i)
                             }}
+                            hasIcon={true}
                         />
                         }
                     </div>
@@ -65,6 +66,7 @@ const Sidebar = () => {
                             onPressed={() => {
                                 setClicked(i)
                             }}
+                            hasIcon={true}
                         />}
                     </div>
                 })}
@@ -74,11 +76,14 @@ const Sidebar = () => {
 }
 
 
+export function SingleList({ IconName, Name, isClicked, onPressed, hasIcon }) {
 
-function SingleList({ IconName, Name, isClicked, onPressed }) {
-    return (
-        <li onClick={onPressed} className={isClicked ? 'active_list' : ''}>
-            <box-icon name={IconName} type={isClicked ? 'solid' : 'regular'} color={textColor} ></box-icon>
+     return (
+        <li role={"tab"} onClick={(event) => {
+            event.stopPropagation();
+            onPressed(event.target)
+        }} className={isClicked ? 'active_list' : ''}>
+            {hasIcon && <box-icon name={IconName} type={isClicked ? 'solid' : 'regular'} color={isClicked ? '#fff' : textColor} ></box-icon>}
             <p>{Name}</p>
         </li>
 

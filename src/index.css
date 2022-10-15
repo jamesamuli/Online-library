@@ -18,6 +18,8 @@
   --cardColor: #ffffff;
   --secondaryColorVariant : #44444b;
   --grayText : #cacaca;
+  --inputBackground : #f1f1f1;
+  --inputTextColor : #6e6e6e;
 }
 
 body {

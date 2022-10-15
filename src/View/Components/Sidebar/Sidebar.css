@@ -70,6 +70,8 @@
 .List_container .active_list {
   background-color: var(--primaryColor);
   border-radius: 0.5rem;
+}.List_container .active_list p{
+  color: var(--cardColor);
 }
 .asLine {
   border-bottom: solid 2px var(--secondaryColorVariant);
