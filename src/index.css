@@ -13,6 +13,9 @@
 
 :root {
   --primaryColor: #4ab0f0;
+  --primaryColorSecondVariant: #feac2f;
+  --primaryColorThirdVariant:#64d889;
+  --primaryColorFourthVariant:#ff5b5e;
   --backgroundColor: #fdfdfd;
   --secondaryColor: #1a1a23;
   --cardColor: #ffffff;
