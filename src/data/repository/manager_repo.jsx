@@ -7,7 +7,7 @@ export default class ManagerRepository {
         const localStorageServices = new LocalStorageServices();
         let isDarkModeOn = localStorageServices.isDarkTheme();
         let currentLanguage = localStorageServices.getCurrentLanguage();
-        console.log(currentLanguage)
+
         return {
             isDarkModeOn: isDarkModeOn,
             currentLanguage: new Internationalisation().getLanguageByCode(currentLanguage)

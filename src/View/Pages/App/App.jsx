@@ -13,7 +13,6 @@ export default class App extends react.Component {
       <div className='App'>
         {/* <Sidebar/> */}
         <Provider store={store}>
-
           <Routes>
             <Route index element={<Home />}></Route>
             <Route path='/dashboard' element={<Dashboard />} />

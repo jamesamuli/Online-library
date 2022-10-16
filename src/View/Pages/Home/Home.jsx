@@ -11,15 +11,11 @@ function Home({currentLanguage, isDarkModeOn, dispatch}) {
 
     useEffect(()=>{
         const settings = new ManagerRepo().loadAppSettings();
-        console.log(settings)
         dispatch(copyWith({
             isDarkModeOn: settings.isDarkModeOn,
             currentLanguage: settings.currentLanguage,
         }))
-
-        console.log(currentLanguage, isDarkModeOn)
-
-    },[])
+    },[dispatch])
 
     const OptionToBeSelected = [
         { IconName: 'library', Name: 'Books', route: '', IconColor: 'var(--primaryColor)' },
@@ -32,6 +28,8 @@ function Home({currentLanguage, isDarkModeOn, dispatch}) {
         { IconName: 'calendar', Name: 'Year published', route: '', IconColor: 'var(--primaryColor)' },
     ]
     return <div className="home_screen">
+        {console.log(currentLanguage, isDarkModeOn)}
+        
         <div className="headers">
             <div className="logo_container">
                 <img src={AppLogo} alt="App Logo" tabIndex={0} />

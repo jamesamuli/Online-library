@@ -7,7 +7,7 @@ export const sdrlbSlice = createSlice({
     initialState: {
         isDarkModeOn: false,
         isInitialized: false,
-        currentLanguage: new Internationalisation().getLanguageByCode('fr'),
+        currentLanguage: new Internationalisation().getLanguageByCode('en'),
         userInformation: {},
     },
     
