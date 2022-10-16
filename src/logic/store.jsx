@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import  crmSlice  from "./slice";
+import  spdrlblice  from "./slice";
 
 export default configureStore({
     reducer:{
-        SPIDERLIB : crmSlice,
+        spiderlib : spdrlblice,
     }
 })

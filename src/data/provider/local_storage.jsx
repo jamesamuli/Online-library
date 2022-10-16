@@ -1,15 +1,15 @@
-import { appName } from "../../config/config";
+import { AppName } from "../../Config/Config";
 import Internationalisation from "./internationalization";
 
 
 
 export default class LocalStorageServices{
     onThemeChanged(isDarkMode){
-        localStorage.setItem(`${appName}isdm`, isDarkMode ? 1 : 0)
+        localStorage.setItem(`${AppName}isdm`, isDarkMode ? 1 : 0)
     }
 
     isDarkTheme(){
-        if(Number(localStorage.getItem(`${appName}isdm`)) === 1){
+        if(Number(localStorage.getItem(`${AppName}isdm`)) === 1){
             return true ;
         }else{
             return false;
@@ -17,9 +17,10 @@ export default class LocalStorageServices{
     }
 
     onLanguageChanged(language){
-        localStorage.setItem(`${appName}slctdlngg`, new Internationalisation().typeToCode(language));
+        localStorage.setItem(`${AppName}slctdlngg`, new Internationalisation().typeToCode(language));
     }
-    getCurrentLanguge(){
-        return localStorage.getItem(`${appName}slctdlngg` ?? 'fr')
+    getCurrentLanguage(){
+        
+        return localStorage.getItem(`${AppName}slctdlngg`) ?? 'en';
     }
 }

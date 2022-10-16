@@ -1,9 +1,26 @@
 import { textColor } from '../../../Config/Config';
 import AppLogo from '../../../Assets/img/withouTextLogo.png'
 import './home.css';
+import { useEffect } from 'react';
+import { connect} from 'react-redux';
+import ManagerRepo from '../../../data/repository/manager_repo';
+import { copyWith } from '../../../logic/slice';
 
 
-export default function Home() {
+function Home({currentLanguage, isDarkModeOn, dispatch}) {
+
+    useEffect(()=>{
+        const settings = new ManagerRepo().loadAppSettings();
+        console.log(settings)
+        dispatch(copyWith({
+            isDarkModeOn: settings.isDarkModeOn,
+            currentLanguage: settings.currentLanguage,
+        }))
+
+        console.log(currentLanguage, isDarkModeOn)
+
+    },[])
+
     const OptionToBeSelected = [
         { IconName: 'library', Name: 'Books', route: '', IconColor: 'var(--primaryColor)' },
         { IconName: 'calendar-event', Name: 'Published 7 day ago', route: '', IconColor: 'var(--primaryColorThirdVariant)' },
@@ -50,3 +67,10 @@ export default function Home() {
         </div>
     </div>
 }
+
+const mapStateToProps = (storeOf) => ({
+    currentLanguage: storeOf.spiderlib.currentLanguage.code,
+    isDarkModeOn: storeOf.spiderlib.isDarkModeOn,
+});
+
+export default connect(mapStateToProps)(Home)

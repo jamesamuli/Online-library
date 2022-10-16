@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 import Internationalisation from '../data/provider/internationalization';
 
 
-export const crmSlice = createSlice({
-    name: 'SPIDERLIB',
+export const sdrlbSlice = createSlice({
+    name: 'spiderlib',
     initialState: {
         isDarkModeOn: false,
         isInitialized: false,
@@ -22,7 +22,7 @@ export const crmSlice = createSlice({
     },
 })
 
-export const { copyWith } = crmSlice.actions;
+export const { copyWith } = sdrlbSlice.actions;
 
 
-export default crmSlice.reducer;
+export default sdrlbSlice.reducer;
