@@ -5,7 +5,8 @@ import Internationalisation from "./internationalization";
 
 export default class LocalStorageServices{
     onThemeChanged(isDarkMode){
-        localStorage.setItem(`${AppName}isdm`, isDarkMode ? 1 : 0)
+        console.log(isDarkMode)
+        localStorage.setItem(`${AppName}isdm`, isDarkMode ? "1" : "0")
     }
 
     isDarkTheme(){

@@ -28,13 +28,6 @@ export default class ManagerRepository {
         localStorageServices.onThemeChanged(isDarkModeOn);
     }
 
-    // onSetRefreshToken(tokens) {
-    //     const { accessToken, refreshToken } = tokens;
-    //     const localStorageServices = new LocalStorageServices();
-    //     localStorageServices.setRefreshToken(refreshToken);
-    //     localStorageServices.setAccessToken(accessToken);
-    // }
-
     onLanguageChanged(language) {
         const localStorageServices = new LocalStorageServices();
         const internationalisation = new Internationalisation();

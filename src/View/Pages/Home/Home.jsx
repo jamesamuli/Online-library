@@ -2,20 +2,22 @@ import { textColor } from '../../../Config/Config';
 import AppLogo from '../../../Assets/img/withouTextLogo.png'
 import './home.css';
 import { useEffect } from 'react';
-import { connect} from 'react-redux';
-import ManagerRepo from '../../../data/repository/manager_repo';
+import { connect } from 'react-redux';
+
 import { copyWith } from '../../../logic/slice';
+import ManagerRepository from '../../../data/repository/manager_repo';
+import Themechanger, { dark, light, themeRender } from '../../Components/Theme/Theme_changer';
 
 
-function Home({currentLanguage, isDarkModeOn, dispatch}) {
+function Home({ currentLanguage, isDarkModeOn, dispatch }) {
 
-    useEffect(()=>{
-        const settings = new ManagerRepo().loadAppSettings();
+    useEffect(() => {
+        const settings = new ManagerRepository().loadAppSettings();
         dispatch(copyWith({
             isDarkModeOn: settings.isDarkModeOn,
             currentLanguage: settings.currentLanguage,
         }))
-    },[dispatch])
+    }, [dispatch])
 
     const OptionToBeSelected = [
         { IconName: 'library', Name: 'Books', route: '', IconColor: 'var(--primaryColor)' },
@@ -27,16 +29,18 @@ function Home({currentLanguage, isDarkModeOn, dispatch}) {
         { IconName: 'list-ol', Name: 'Series', route: '', IconColor: 'var(--primaryColorFourthVariant)' },
         { IconName: 'calendar', Name: 'Year published', route: '', IconColor: 'var(--primaryColor)' },
     ]
-    return <div className="home_screen">
+    return <div className="home_screen" style={themeRender(isDarkModeOn ? dark : light)}>
         {console.log(currentLanguage, isDarkModeOn)}
-        
+
         <div className="headers">
             <div className="logo_container">
                 <img src={AppLogo} alt="App Logo" tabIndex={0} />
             </div>
             <div className="side_container">
-                <box-icon name='moon' color={"var(--primaryColor)"} size={'2em'}></box-icon>
-                <box-icon name='world' color={"var(--primaryColorThirdVariant)"} size={'2rem'}></box-icon>
+                <Themechanger/>
+                <div className="language_container">
+                    <box-icon name='world' color={"var(--primaryColorThirdVariant)"} size={'2rem'}></box-icon>
+                </div>
             </div>
         </div>
         <div className="main_container">
