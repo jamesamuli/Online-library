@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import { copyWith } from '../../../logic/slice';
 import ManagerRepository from '../../../data/repository/manager_repo';
-import Themechanger, { dark, light, themeRender } from '../../Components/Theme/Theme_changer';
+import Themechanger, { AppTheme, dark, light, themeRender } from '../../Components/Theme/Theme_changer';
 
 
 function Home({ currentLanguage, isDarkModeOn, dispatch }) {
@@ -19,6 +19,8 @@ function Home({ currentLanguage, isDarkModeOn, dispatch }) {
         }))
     }, [dispatch])
 
+    const Apptheme = new AppTheme()
+
     const OptionToBeSelected = [
         { IconName: 'library', Name: 'Books', route: '', IconColor: 'var(--primaryColor)' },
         { IconName: 'calendar-event', Name: 'Published 7 day ago', route: '', IconColor: 'var(--primaryColorThirdVariant)' },
@@ -29,7 +31,7 @@ function Home({ currentLanguage, isDarkModeOn, dispatch }) {
         { IconName: 'list-ol', Name: 'Series', route: '', IconColor: 'var(--primaryColorFourthVariant)' },
         { IconName: 'calendar', Name: 'Year published', route: '', IconColor: 'var(--primaryColor)' },
     ]
-    return <div className="home_screen" style={themeRender(isDarkModeOn ? dark : light)}>
+    return <div className="home_screen" style={isDarkModeOn ? Apptheme.dark : Apptheme.light}>
         {console.log(currentLanguage, isDarkModeOn)}
 
         <div className="headers">

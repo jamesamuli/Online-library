@@ -16,12 +16,12 @@
   --primaryColorSecondVariant: #feac2f;
   --primaryColorThirdVariant:#64d889;
   --primaryColorFourthVariant:#ff5b5e;
-  --backgroundColor: #fdfdfd;
+  /* --backgroundColor: #fdfdfd; */
   --secondaryColor: #1a1a23;
   --cardColor: #ffffff;
   --secondaryColorVariant : #44444b;
   --grayText : #cacaca;
-  --inputBackground : #f1f1f1;
+  --inputBackground : rgba(245,247,250,1);
   --inputTextColor : #6e6e6e;
 }
 

@@ -25,37 +25,42 @@ async function changeTheme(isDarkModeOn, dispatch) {
     }
     console.log("Theme changed successfully !!!")
 }
-export const light = {
-    backgroundColor: "#fdfdfd",
-    secondaryColor: "#1a1a23",
-    cardColor: "#ffffff",
-    secondaryColorVariant: "#44444b",
-    grayText: "#cacaca",
-    inputBackground: "#f1f1f1",
-    inputTextColor: "#6e6e6e",
-};
-export const dark = {
-    backgroundColor: 'rgba(17, 24, 39, 1)',
-    secondaryColor: "#1a1a23",
-    cardColor: "#ffffff",
-    secondaryColorVariant: "#44444b",
-    grayText: "#cacaca",
-    inputBackground: "#f1f1f1",
-    inputTextColor: "#6e6e6e",
-};
-export function themeRender(theme) {
 
 
-    return {
-        '--backgroundColor': theme.backgroundColor,
-        '--secondaryColor': theme.secondaryColor,
-        '--cardColor': theme.cardColor,
-        '--secondaryColorVariant': theme.secondaryColorVariant,
-        '--grayText ': theme.grayText,
-        '--inputBackground': theme.inputBackground,
-        '--inputTextColor': theme.inputTextColor,
+
+export class AppTheme {
+    themeRender(theme) {
+        return {
+            '--secondaryColor': theme.secondaryColor,
+            '--backgroundColor': theme.backgroundColor,
+            '--cardColor': theme.cardColor,
+            '--secondaryColorVariant': theme.secondaryColorVariant,
+            '--grayText ': theme.grayText,
+            '--inputBackground': theme.inputBackground,
+            '--inputTextColor': theme.inputTextColor,
+        }
     }
+    light = {
+        inputBackground: "rgba(245,247,250,1)",
+        backgroundColor: "#fdfdfd",
+        secondaryColor: "#1a1a23",
+        cardColor: "#ffffff",
+        secondaryColorVariant: "#44444b",
+        grayText: "#cacaca",
+        inputTextColor: "#6e6e6e",
+    };
+    dark = {
+        backgroundColor: 'rgba(17, 24, 39, 1)',
+        secondaryColor: "#1a1a23",
+        cardColor: "#ffffff",
+        secondaryColorVariant: "#44444b",
+        grayText: "#cacaca",
+        inputBackground: "rgba(0,0,0,1)",
+        inputTextColor: "#6e6e6e",
+    };
 }
+
+
 
 const mapStateToProps = (storeOf) => ({
     isDarkModeOn: storeOf.spiderlib.isDarkModeOn,
