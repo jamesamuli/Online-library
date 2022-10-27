@@ -3,13 +3,12 @@ import AppLogo from '../../../Assets/img/withouTextLogo.png'
 import './home.css';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-
 import { copyWith } from '../../../logic/slice';
 import ManagerRepository from '../../../data/repository/manager_repo';
-import Themechanger, { AppTheme, dark, light, themeRender } from '../../Components/Theme/Theme_changer';
+import Themechanger from '../../Components/Theme/Theme_changer';
 
 
-function Home({ currentLanguage, isDarkModeOn, dispatch }) {
+function Home({ currentLanguage, dispatch }) {
 
     useEffect(() => {
         const settings = new ManagerRepository().loadAppSettings();
@@ -19,7 +18,6 @@ function Home({ currentLanguage, isDarkModeOn, dispatch }) {
         }))
     }, [dispatch])
 
-    const Apptheme = new AppTheme()
 
     const OptionToBeSelected = [
         { IconName: 'library', Name: 'Books', route: '', IconColor: 'var(--primaryColor)' },
@@ -31,10 +29,9 @@ function Home({ currentLanguage, isDarkModeOn, dispatch }) {
         { IconName: 'list-ol', Name: 'Series', route: '', IconColor: 'var(--primaryColorFourthVariant)' },
         { IconName: 'calendar', Name: 'Year published', route: '', IconColor: 'var(--primaryColor)' },
     ]
-    return <div className="home_screen" style={isDarkModeOn ? Apptheme.dark : Apptheme.light}>
-        {console.log(currentLanguage, isDarkModeOn)}
-
-        <div className="headers">
+    return <div className="home_screen">
+        {console.log(currentLanguage)}
+        <div className="headers" >
             <div className="logo_container">
                 <img src={AppLogo} alt="App Logo" tabIndex={0} />
             </div>

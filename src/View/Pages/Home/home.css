@@ -81,6 +81,7 @@
   width: clamp(18rem, 8.175rem + 26.2vw, 30rem);
   padding: 1rem;
   border-radius: 3rem;
+  outline: 0.1rem solid var(--grayText);
 }
 .search_container .search_button {
   top: 0.7rem;
@@ -105,5 +106,6 @@
 }
 .route_container > .container h3 {
   color: var(--secondaryColorVariant);
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 1.1rem;
 }

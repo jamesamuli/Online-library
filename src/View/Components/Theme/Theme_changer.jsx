@@ -5,7 +5,7 @@ import { copyWith } from '../../../logic/slice';
 
 
 function ThemeChanger({ isDarkModeOn, dispatch }) {
-    return <div className="mode_container" onClick={(event) => {
+    return <div className="mode_container" tabIndex={0} onClick={(event) => {
         event.preventDefault();
         event.stopPropagation();
         changeTheme(!isDarkModeOn, dispatch)
@@ -31,32 +31,28 @@ async function changeTheme(isDarkModeOn, dispatch) {
 export class AppTheme {
     themeRender(theme) {
         return {
-            '--secondaryColor': theme.secondaryColor,
-            '--backgroundColor': theme.backgroundColor,
-            '--cardColor': theme.cardColor,
-            '--secondaryColorVariant': theme.secondaryColorVariant,
-            '--grayText ': theme.grayText,
-            '--inputBackground': theme.inputBackground,
-            '--inputTextColor': theme.inputTextColor,
+            "--secondaryColor": theme.secondaryColor,
+            "--bgColor": theme.backgroundColor,
+            "--cardColor": theme.cardColor,
+            "--secondaryColorVariant": theme.secondaryColorVariant,
+            "--grayText": theme.grayText,
+            "--inputBackground": theme.inputBackground,
+            "--inputTextColor": theme.inputTextColor,
         }
     }
     light = {
-        inputBackground: "rgba(245,247,250,1)",
         backgroundColor: "#fdfdfd",
-        secondaryColor: "#1a1a23",
         cardColor: "#ffffff",
-        secondaryColorVariant: "#44444b",
-        grayText: "#cacaca",
-        inputTextColor: "#6e6e6e",
+        secondaryColorVariant : "#44444b",
+        grayText : "#cacaca",
+        inputBackground : "rgba(245,247,250,1)",
+        inputTextColor : "#6e6e6e",
     };
     dark = {
-        backgroundColor: 'rgba(17, 24, 39, 1)',
-        secondaryColor: "#1a1a23",
-        cardColor: "#ffffff",
-        secondaryColorVariant: "#44444b",
-        grayText: "#cacaca",
-        inputBackground: "rgba(0,0,0,1)",
-        inputTextColor: "#6e6e6e",
+        backgroundColor: "rgba(17, 24, 39,1)",  
+        inputBackground : "rgba(0, 0, 0, 1)",
+        inputTextColor : 'var(--grayText)',
+        secondaryColorVariant : "var(--grayText)"
     };
 }
 

@@ -5,24 +5,22 @@
 }
 
 *::before,
-*::after{
+*::after {
   box-sizing: border-box;
 }
-
-
 
 :root {
   --primaryColor: #4ab0f0;
   --primaryColorSecondVariant: #feac2f;
-  --primaryColorThirdVariant:#64d889;
-  --primaryColorFourthVariant:#ff5b5e;
-  /* --backgroundColor: #fdfdfd; */
+  --primaryColorThirdVariant: #64d889;
+  --primaryColorFourthVariant: #ff5b5e;
+  --backgroundColor: #fdfdfd;
   --secondaryColor: #1a1a23;
   --cardColor: #ffffff;
-  --secondaryColorVariant : #44444b;
-  --grayText : #cacaca;
-  --inputBackground : rgba(245,247,250,1);
-  --inputTextColor : #6e6e6e;
+  --secondaryColorVariant: #44444b;
+  --grayText: #cacaca;
+  --inputBackground: rgba(245, 247, 250, 1);
+  --inputTextColor: #6e6e6e;
 }
 
 body {
@@ -30,14 +28,25 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 #root {
   width: 100vw;
   height: 100vh;
-  background-color: var(--backgroundColor);
 }
 
-li{
+li {
   list-style: none;
   text-decoration: none;
+}
+
+
+
+::placeholder{
+  font-family: var(--primaryFont);
+  font-weight: 500;
+  font-size: .9rem;
+  /* color: var(--grayText); */
 }
