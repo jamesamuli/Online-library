@@ -13,10 +13,9 @@ import App from './View/Pages/App/App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-  {/* {store} */}
-  <Provider store={store}>
-    <App />
-  </Provider>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </BrowserRouter>
 );
 
