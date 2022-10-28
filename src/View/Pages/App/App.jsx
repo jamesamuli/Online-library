@@ -11,8 +11,7 @@ class App extends react.Component {
   render() {
     const Theme = new AppTheme();
     return (
-      <div className='App' style={Theme.themeRender(this.props.isDarkModeOn ? Theme.dark : Theme.light)}>
-        {/* <Sidebar/> */}  
+      <div className='App' style={Theme.themeRender(this.props.isDarkModeOn ? Theme.dark : Theme.light)}> 
           <Routes>
             <Route index element={<Home/>}></Route>
             <Route path='/dashboard' element={<Dashboard />} />
