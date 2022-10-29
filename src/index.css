@@ -37,6 +37,9 @@ body {
   height: 100vh;
 }
 
+a{
+  text-decoration: none;
+}
 li {
   list-style: none;
   text-decoration: none;

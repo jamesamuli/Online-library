@@ -7,7 +7,6 @@ const Dashboard = () => {
         <>
             <div className="Dashboard">
                 <Navigation />
-
                 <div>
                     Dashboard
                 </div>
