@@ -26,6 +26,8 @@ export default class Internationalisation {
             'sw': "Kiswahili",
         },
     ];
+
+    
     codeToType(code) {
         switch (code) {
             case 'fr':

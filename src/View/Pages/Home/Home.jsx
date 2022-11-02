@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 
 import Themechanger from '../../Components/Theme/Theme_changer';
 import { Link } from 'react-router-dom';
+import LanguageChanger from '../../Components/Language/languageChanger';
 
 
 function Home({ currentLanguage, dispatch }) {
@@ -66,6 +67,7 @@ function Home({ currentLanguage, dispatch }) {
                 </div>
             </div>
         </div>
+        <LanguageChanger/>
     </div>
 }
 

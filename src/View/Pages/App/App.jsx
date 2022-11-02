@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router';
 import Dashboard from '../Dashboard/Dashboard';
 import { connect } from 'react-redux';
 import Home from '../Home/Home';
-
 import { AppTheme } from '../../Components/Theme/Theme_changer';
 import ManagerRepository from '../../../data/repository/manager_repo';
 import { copyWith } from '../../../logic/slice';
@@ -12,7 +11,7 @@ import Books from '../Books/books';
 
 class App extends react.Component {
   componentDidMount() {
-    console.log(this.props.isDarkModeOn, this.props.currentLanguage)
+    // console.log(this.props.isDarkModeOn, this.props.currentLanguage)
     const settings = new ManagerRepository().loadAppSettings();
     this.props.dispatch(copyWith({
       isDarkModeOn: settings.isDarkModeOn,
